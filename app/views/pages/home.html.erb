@@ -1,2 +1,15 @@
-<h1>Pages#home</h1>
-<p>Find me in app/views/pages/home.html.erb</p>
+<div class="banner">
+  <div class="container">
+    <h1>SCATAB on Skates <strong>lets you </strong> rent <strong>your favorite obstacles</strong>!</h1>
+    <p>Rent an obstacle anytime and anywhere to elevate your skills to a new level </p>
+    <a class="btn btn-flat" href="#search">Rent now</a>
+  </div>
+</div>
+
+<div id="search" class=" container m-2">
+  <%= render 'shared/searchform' %>
+</div>
+
+<%= render 'shared/obstacle_list' %>
+
+
