@@ -6,12 +6,8 @@
   <% @obstacles.each do |obstacle| %>
     <li>
       <%= link_to obstacle.name , obstacle_path(obstacle) %>
-      <%= link_to "show", obstacle_path(obstacle), class: "btn"%>
     </li>
   <% end %>
   </ul>
-
-
-<%= link_to "create", new_obstacle_path, class: "btn btn-primary"%>
 
 </div>
