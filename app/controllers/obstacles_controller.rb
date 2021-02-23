@@ -7,9 +7,6 @@ class ObstaclesController < ApplicationController
     @obstacle = Obstacle.new
   end
 
-  def update
-  end
-
   def create
     @obstacle = Obstacle.new(obstacle_params)
     @user = current_user
@@ -22,12 +19,25 @@ class ObstaclesController < ApplicationController
   end
 
   def show
+    @obstacle = Obstacle.find(params[:id])
   end
 
   def edit
+    @obstacle = Obstacle.find(params[:id])
   end
 
-  def delete
+
+  def update
+    @obstacle = Obstacle.update(obstacle_params)
+
+    redirect_to obstacle_path(@obstacle)
+  end
+
+  def destroy
+    @obstacle = Obstacle.find(params[:id])
+    @obstacle.destroy
+
+    redirect_to obstacles_path
   end
 
   private
