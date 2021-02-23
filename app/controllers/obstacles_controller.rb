@@ -15,7 +15,7 @@ class ObstaclesController < ApplicationController
     @user = current_user
     @obstacle.user = @user
     if @obstacle.save
-      redirect_to obstacle_show_path(@obstacle)
+      redirect_to obstacle_path(@obstacle)
     else
       render 'new'
     end
