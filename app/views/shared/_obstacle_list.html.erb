@@ -1,17 +1,18 @@
-
+<div class="grid-container m-3">
   <% @obstacles.each do |obstacle| %>
     <%= link_to obstacle_path(obstacle) do %>
       <div class="card">
         <img src="https://raw.githubusercontent.com/lewagon/fullstack-images/master/uikit/greece.jpg" />
         <div class="card-infos">
           <div>
-            <h2>Title here</h2>
-            <p>Short description here!</p>
+            <h2> <%= obstacle.name %> </h2>
+            <p>obstacle.desscription</p>
           </div>
-          <h2 class="card-pricing">£99.99</h2>
-          <img src="https://kitt.lewagon.com/placeholder/users/krokrob" class="card-user avatar-bordered" />
+          <h2 class="card-pricing"> <%= obstacle.price %>€ </h2>
         </div>
       </div>
+
     <% end %>
   <% end %>
+</div>
 
