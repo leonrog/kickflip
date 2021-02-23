@@ -20,6 +20,7 @@ class ObstaclesController < ApplicationController
 
   def show
     @obstacle = Obstacle.find(params[:id])
+    @booking = Booking.new
   end
 
   def edit

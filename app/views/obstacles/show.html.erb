@@ -8,7 +8,6 @@
   </div>
 </div>
 
-
 <div class="container">
   <div class="show-page">
 
@@ -57,16 +56,7 @@
         </div>
 
     </div>
-    <div class="form">
-        <%= simple_form_for @obstacle do |f| %>
-        <%= f.input :name %>
-        <%= f.input :category %>
-        <%= f.input :price %>
-        <%= f.input :availability %>
-        <%= f.input :location %>
-        <%= f.button :submit %>
-      <% end %>
-    </div>
+<%= render 'bookings/form' %>
 
   </div>
 
