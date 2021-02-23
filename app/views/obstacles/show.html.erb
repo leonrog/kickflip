@@ -1,2 +1,12 @@
 <h1>Obstacles#show</h1>
 <p>Find me in app/views/obstacles/show.html.erb</p>
+
+
+
+<h1><%= @obstacle.name %> <%= @obstacle.category %> <%= @obstacle.price %> </h1>
+
+<%= link_to "Delete Item",
+            obstacle_path(@obstacle),
+            class: "btn btn-info",
+            method: :delete,
+            data: { confirm: "Are you sure?" } %>
