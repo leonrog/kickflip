@@ -1,10 +1,12 @@
-<%= simple_form_for @obstacle do |f| %>
-  <%= f.input :name %>
-  <%= f.input :category %>
-  <%= f.input :description %>
-  <%= f.input :price %>
-  <%= f.input :availability %>
-  <%= f.input :location %>
-  <%= f.button :submit %>
-<% end %>
 
+<div class="container">
+  <%= simple_form_for @obstacle do |f| %>
+    <%= f.input :name %>
+    <%= f.input :category %>
+    <%= f.input :description %>
+    <%= f.input :price %>
+    <%= f.input :availability %>
+    <%= f.input :location %>
+    <%= f.button :submit %>
+  <% end %>
+</div>
