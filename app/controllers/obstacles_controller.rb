@@ -44,6 +44,6 @@ class ObstaclesController < ApplicationController
   private
 
   def obstacle_params
-    params.require(:obstacle).permit(:name, :category, :price, :availability, :location, :description)
+    params.require(:obstacle).permit(:name, :category, :price, :availability, :location, :description, :photo)
   end
 end

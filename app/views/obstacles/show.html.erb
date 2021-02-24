@@ -22,6 +22,7 @@
           <div class="price">
             <p> <%= @obstacle.price %> €</p>
           </div>
+          <%= cl_image_tag @obstacle.photo.key, height: 300, width: 400, crop: :fill %>
         </div>
       </div>
 
