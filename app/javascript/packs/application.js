@@ -15,8 +15,8 @@ require("channels")
 //
 // const images = require.context('../images', true)
 // const imagePath = (name) => images(name, true)
-
-
+import { initFlatpickr } from "../plugins/flatpickr";
+initFlatpickr();
 // ----------------------------------------------------
 // Note(lewagon): ABOVE IS RAILS DEFAULT CONFIGURATION
 // WRITE YOUR OWN JS STARTING FROM HERE 👇
@@ -24,6 +24,7 @@ require("channels")
 
 // External imports
 import "bootstrap";
+
 
 // Internal imports, e.g:
 // import { initSelect2 } from '../components/init_select2';
