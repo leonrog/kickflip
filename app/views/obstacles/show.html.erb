@@ -22,7 +22,9 @@
           <div class="price">
             <p> <%= @obstacle.price %> €</p>
           </div>
-          <%= cl_image_tag @obstacle.photo.key, height: 300, width: 400, crop: :fill %>
+
+            <%= cl_image_tag @obstacle.photo.key, height: 300, width: 400, crop: :fill %>
+
         </div>
       </div>
 
@@ -57,8 +59,11 @@
         </div>
 
     </div>
-<%= render 'bookings/form' %>
-
+    <% if Booking.find_by(user: current_user, obstacle: @obstacle) %>
+      <%= render 'bookings/confirmation' %>
+    <% else %>
+      <%= render 'bookings/form' %>
+    <% end %>
   </div>
 
 </div>

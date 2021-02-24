@@ -1,14 +1,13 @@
 class BookingsController < ApplicationController
   def index
-    # not yet completed
+    # not needed for now
     @bookings = Booking.all
   end
 
   def show
-    # not yet completed
+    # not needed -> we'll create a dashboard instead
     # @booking = Booking.find(params[:booking_id])
     # @obstacle = Obstacle.find(params[:obstacle_id])
-
   end
 
   def create
@@ -25,7 +24,7 @@ class BookingsController < ApplicationController
   end
 
   def destroy
-  # not completed yet
+  # not completed yet/ not needed for demo
     @booking = Booking.find(params[:id])
     @booking.destroy
     redirect_to obstacle_path(@booking.obstacle)
