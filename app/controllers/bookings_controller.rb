@@ -18,7 +18,7 @@ class BookingsController < ApplicationController
     @user = current_user
     @booking.user = @user
     if @booking.save
-      redirect_to root_path
+      redirect_to obstacle_path(@obstacle)
     else
       render 'obstacles/show'
     end
