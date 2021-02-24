@@ -15,12 +15,20 @@
 @import "components/index";
 @import "pages/index";
 
-
-.show-page {
+@media only screen and (min-width: 600px) {
+  .show-page {
   display: flex;
   margin: 10px;
   justify-content: space-between;
 }
+}
+
+@media only screen and (max-width: 600px) {
+  .show-page {
+  margin: 10px;
+}
+}
+
 
 .header {
   display:flex;
@@ -54,5 +62,9 @@
 
 body {
   background-color: $manatee;
-  linear-gradient: $gradient-top;
+
+}
+.show-page {
+  display:flex;
+  justify-content:space-between;
 }
