@@ -27,7 +27,6 @@ class ObstaclesController < ApplicationController
     @obstacle = Obstacle.find(params[:id])
   end
 
-
   def update
     @obstacle = Obstacle.update(obstacle_params)
 
