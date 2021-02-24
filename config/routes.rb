@@ -9,6 +9,8 @@ Rails.application.routes.draw do
   get 'obstacles/edit'
   get 'obstacles/delete'
   devise_for :users
+  resources :users, only: [:show, :edit, :update]
+
   root to: 'pages#home'
   resources :obstacles do
     resources :bookings, only:[:index, :new, :create, :delete, :show]
