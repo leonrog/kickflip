@@ -9,6 +9,7 @@
 @import "font-awesome-sprockets";
 @import "font-awesome";
 @import "flatpickr/dist/flatpickr";
+@import "flatpickr/dist/themes/airbnb";
 
 // Your CSS partials
 @import "components/index";
@@ -51,3 +52,7 @@
   height: 110px;
 }
 
+body {
+  background-color: $manatee;
+  linear-gradient: $gradient-top;
+}
