@@ -54,16 +54,8 @@
           <div class="seller-text ml-2">
             <p>I am here to help you. Used this for backflips.</p>
           </div>
-
-
         </div>
-
     </div>
-    <% if Booking.find_by(user: current_user, obstacle: @obstacle) %>
-      <%= render 'bookings/confirmation' %>
-    <% else %>
-      <%= render 'bookings/form' %>
-    <% end %>
+<%= render 'bookings/form' %>
   </div>
-
 </div>
