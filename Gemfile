@@ -64,3 +64,7 @@ gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw, :jruby]
 
 #create env
 gem 'dotenv-rails', groups: [:development, :test]
+
+#cloudinary
+gem 'cloudinary', '~> 1.16.0'
+
