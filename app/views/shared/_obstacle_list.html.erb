@@ -2,7 +2,9 @@
   <% @obstacles.each do |obstacle| %>
     <%= link_to obstacle_path(obstacle) do %>
       <div class="card">
-        <%= cl_image_tag obstacle.photo.key, height:200 , width: 400, crop: :fill %>
+        <% if obstacle.photo.attached? %>
+          <%= cl_image_tag obstacle.photo.key, height:200 , width: 400, crop: :fill %>
+        <% end %>
         <div class="card-infos">
           <div>
             <h2> <%= obstacle.name %> </h2>

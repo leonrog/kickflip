@@ -9,7 +9,9 @@
     <ul class="navbar-nav mr-auto">
       <% if user_signed_in? %>
          <li class="nav-item">
-          <%= link_to "UPLOAD", new_obstacle_path, class: "link" %>
+          <% if policy(Obstacle).create? %>
+            <%= link_to "UPLOAD", new_obstacle_path, class: "link" %>
+          <% end %>
         </li>
         <li class="nav-item dropdown">
 
