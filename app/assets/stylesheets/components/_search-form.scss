@@ -24,3 +24,11 @@
   background-color: $isabelline;
 
 }
+
+.srch-btn{
+  border: 1px solid black;
+}
+.srch-btn:hover{
+  opacity: 0.5;
+  border: 1px solid green;
+}
