@@ -1,20 +1,25 @@
 <% if policy(@obstacles).dashboard? %>
 
+<div class="container">
+  <h4>My Bookings</h4>
+  <div class="grid-container m-3">
   <% @bookings.each do |booking| %>
-    <div class="card">
-      <div class="card-header">
-        From <%= booking.start_date %> until <%= booking.end_date %>
-      </div>
-      <div class="card-body">
-        <h5 class="card-title"><%= booking.obstacle.name %></h5>
-        <p class="card-text mb-3"><%= booking.obstacle.description %></p>
-        <%= link_to "Cancel", booking_path(booking), method: :delete,
+    <div class="notification">
+          <%= cl_image_tag booking.obstacle.photo.key, height:100 , width: 200, crop: :fill %>
+          <div class="notification-content">
+            <p>Obstacle: <%= booking.obstacle.name %> </p>
+
+            <p>Start date: <%= booking.start_date %> </p>
+            <p>End date: <%= booking.end_date %> </p>
+            <p>Landlord-Email: <%= booking.obstacle.user.email %> </p>
+          </div>
+          <%= link_to "Cancel", booking_path(booking), method: :delete,
               data: { confirm: "Are you sure?" } %>
-      </div>
-    </div>
+        </div>
   <% end %>
+  </div>
 
-
+  <div class="grid-container m-3">
     <% @obstacles.each do |obstacle| %>
 
         <div class="card">
@@ -38,6 +43,6 @@
           </div>
       </div>
     <% end %>
+  <% end %>
   </div>
-<% end %>
-
+</div>

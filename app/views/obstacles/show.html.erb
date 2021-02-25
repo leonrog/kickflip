@@ -32,20 +32,17 @@
 </div>
 <div class="container">
       <h2>Reviews</h2>
-      <div class="notification">
-        <img src='https://kitt.lewagon.com/placeholder/users/arthur-littm' class="avatar-large" />
-        <div class="notification-content">
-          <p><small>14th January</small></p>
-          <p>Lorem ipsum dolor sit amet, <strong>consectetur</strong> adipisicing elit.</p>
+      <% @reviews.each do |review| %>
+        <div class="notification">
+          <%= cl_image_tag review.user.photo.key, class: "avatar dropdown-toggle"%>
+          <div class="notification-content">
+            <p><small> <%= review.created_at %> </small></p>
+            <p><%= review.description %></p>
+            <p> <%= review.rating*":star:" %></p>
+          </div>
         </div>
-      </div>
-      <div class="notification">
-        <img src='https://kitt.lewagon.com/placeholder/users/arthur-littm' class="avatar-large" />
-        <div class="notification-content">
-          <p><small>14th January</small></p>
-          <p>Lorem ipsum dolor sit amet, <strong>consectetur</strong> adipisicing elit.</p>
-        </div>
-      </div>
+      <% end %>
+      <%= link_to "Create review", new_obstacle_review_path(@obstacle),class: "btn btn-flat btn-color" %>
 
       <h2>Contact the seller</h2>
         <div class="seller-info">

@@ -1,0 +1,10 @@
+
+<div class="container form-color">
+  <%= simple_form_for [@obstacle, @review] do |f| %>
+    <%= f.input :title %>
+    <%= f.input :description %>
+    <%= f.input :rating, collection: 1..5, class: "fa fa-star checked" %>
+    <%= f.button :submit, class: "btn btn-flat btn-color" %>
+  <% end %>
+</div>
+
