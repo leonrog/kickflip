@@ -1,8 +1,14 @@
 class ObstaclesController < ApplicationController
   before_action :set_obstacle, only: [:show, :edit, :update, :destroy]
-  def index
-    @obstacles = Obstacle.all
-  end
+  skip_before_action :authenticate_user!, only: :show
+  # def index
+  #   # if params[:query].present?
+  #   #   @obstacles = policy_scope(Obstacle).where("name ILIKE ?", "%#{params[:query]}%")
+  #   # else
+  #   #   @obstacles = policy_scope(Obstacle).order(created_at: :desc)
+  #   # end
+  #   # @obstacles = policy_scope(Obstacle).order(created_at: :desc)
+  # end
 
   def new
     @obstacle = Obstacle.new
