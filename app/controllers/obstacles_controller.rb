@@ -22,6 +22,7 @@ class ObstaclesController < ApplicationController
   end
 
   def show
+    @reviews = Review.where(obstacle_id: params[:id])
     @booking = Booking.new
     authorize @obstacle
   end
