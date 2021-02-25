@@ -1,4 +1,5 @@
 class ObstaclesController < ApplicationController
+  before_action :set_obstacle, only: [:show, :edit, :update, :destroy]
   def index
     @obstacles = Obstacle.all
   end
@@ -21,12 +22,11 @@ class ObstaclesController < ApplicationController
   end
 
   def show
-    @obstacle = Obstacle.find(params[:id])
     @booking = Booking.new
+    authorize @obstacle
   end
 
   def edit
-    @obstacle = Obstacle.find(params[:id])
     authorize @obstacle
   end
 
@@ -37,9 +37,8 @@ class ObstaclesController < ApplicationController
   end
 
   def destroy
-    @obstacle = Obstacle.find(params[:id])
     @obstacle.destroy
-
+    authorize @obstacle
     redirect_to obstacles_path
   end
 
@@ -50,6 +49,10 @@ class ObstaclesController < ApplicationController
   end
 
   private
+
+  def set_obstacle
+    @obstacle = Obstacle.find(params[:id])
+  end
 
   def obstacle_params
     params.require(:obstacle).permit(:name, :category, :price, :availability, :location, :description, :photo)

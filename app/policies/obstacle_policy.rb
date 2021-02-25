@@ -9,6 +9,10 @@ class ObstaclePolicy < ApplicationPolicy
     return true
   end
 
+  def show?
+    return true
+  end
+
   def update?
     record.user == user
   end
@@ -20,4 +24,5 @@ class ObstaclePolicy < ApplicationPolicy
   def dashboard?
     return true
   end
+
 end

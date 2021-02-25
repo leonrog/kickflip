@@ -1,4 +1,33 @@
 <% if policy(@obstacles).dashboard? %>
-  <%= @obstacles %>
+
+  <div class="grid-container m-3">
+    <% @bookings.each do |booking| %>
+      <%= booking.start_date %>
+    <% end %>
+
+    <% @obstacles.each do |obstacle| %>
+
+        <div class="card">
+          <% if obstacle.photo.attached? %>
+            <%= cl_image_tag obstacle.photo.key, height:200 , width: 400, crop: :fill %>
+          <% end %>
+          <div class="card-infos">
+            <div>
+              <h2> <%= obstacle.name %> </h2>
+              <p> <%=obstacle.description %></p>
+            </div>
+            <h2 class="card-pricing"> <%= obstacle.price %>€ </h2>
+          </div>
+          <div class="links-list">
+          <%= link_to "View", obstacle_path(obstacle) %>
+          <%= link_to "Edit", edit_obstacle_path(obstacle) %>
+          <%= link_to "Delete #{obstacle.name}",
+            obstacle_path(obstacle),
+            method: :delete,
+            data: { confirm: "Are you sure?" } %>
+          </div>
+      </div>
+    <% end %>
+  </div>
 <% end %>
 
