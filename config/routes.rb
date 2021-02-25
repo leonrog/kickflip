@@ -1,16 +1,8 @@
 Rails.application.routes.draw do
-  get 'bookings/index'
-  get 'bookings/show'
-  get 'obstacles/index'
-  get 'obstacles/new'
-  get 'obstacles/update'
-  get 'obstacles/create'
-  get 'obstacles/show'
-  get 'obstacles/edit'
-  get 'obstacles/delete'
   devise_for :users
   get '/myprofile', to: 'users#show', as: :my_profile
   get '/myprofile/edit', to: 'users#edit', as: :edit_my_profile
+  get '/mydashboard', to: 'obstacles#dashboard', as: :my_dashboard
   put '/myprofile', to: 'users#update', as: :update_my_profile
   root to: 'pages#home'
   resources :obstacles do

@@ -5,8 +5,3 @@
 #
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
-Obstacle.destroy_all
-
-Obstacle.create(name: 'Small ramp' category: 'ramp' price: 10, availability: description: 'This is my favorite small ramp, perfect for trying out new tricks' location: 'Berlin')
-
-

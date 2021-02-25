@@ -5,12 +5,14 @@ class ObstaclesController < ApplicationController
 
   def new
     @obstacle = Obstacle.new
+    authorize @obstacle
   end
 
   def create
     @obstacle = Obstacle.new(obstacle_params)
     @user = current_user
     @obstacle.user = @user
+    authorize @obstacle
     if @obstacle.save
       redirect_to obstacle_path(@obstacle)
     else
@@ -25,11 +27,12 @@ class ObstaclesController < ApplicationController
 
   def edit
     @obstacle = Obstacle.find(params[:id])
+    authorize @obstacle
   end
 
   def update
     @obstacle = Obstacle.update(obstacle_params)
-
+    authorize @obstacle
     redirect_to obstacle_path(@obstacle)
   end
 
@@ -38,6 +41,12 @@ class ObstaclesController < ApplicationController
     @obstacle.destroy
 
     redirect_to obstacles_path
+  end
+
+  def dashboard
+    @obstacles = current_user.obstacles
+    @bookings = current_user.bookings
+    authorize @obstacles
   end
 
   private
