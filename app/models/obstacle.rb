@@ -4,5 +4,5 @@ class Obstacle < ApplicationRecord
   has_one_attached :photo
   validates :name, :category, :price, :availability, :description, :location, presence: true
   validates :price, numericality: { greater_than: 0 }
-  validates :category, inclusion: { in: %w(flatrail curb kicker quarter ramp handrail other) }
+  validates :category, inclusion: { in: %w(Flatrail Curb Kicker Quarter Ramp Handrail Other) }
 end

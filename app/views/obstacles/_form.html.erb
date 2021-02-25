@@ -2,12 +2,12 @@
 <div class="container form-color">
   <%= simple_form_for @obstacle do |f| %>
     <%= f.input :name %>
-    <%= f.input :category %>
+    <%= f.input :category, collection: %w(Flatrail Curb Kicker Quarter Ramp Handrail Other) %>
     <%= f.input :description %>
     <%= f.input :price %>
     <%= f.input :availability %>
     <%= f.input :location %>
     <%= f.input :photo, as: :file %>
-    <%= f.button :submit %>
+    <%= f.button :submit, class: "btn btn-flat btn-color" %>
   <% end %>
 </div>

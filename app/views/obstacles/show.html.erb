@@ -1,9 +1,9 @@
 
 <div class="header">
   <div class="container">
-    <%= link_to 'Homepage', root_path %>
+
     <div class="card">
-      <img src="https://raw.githubusercontent.com/lewagon/fullstack-images/master/uikit/greece.jpg" />
+      <%= cl_image_tag @obstacle.photo.key, height: 300, width: 400, crop: :fill %>
     </div>
   </div>
 </div>
@@ -17,16 +17,20 @@
         <div class="details">
           <div class="description">
             <h4> <%= @obstacle.name %> </h4>
-            <h5> obstacle.description </h5>
+            <h5> <%= @obstacle.description %> </h5>
           </div>
           <div class="price">
             <p> <%= @obstacle.price %> €</p>
           </div>
-          <%= cl_image_tag @obstacle.photo.key, height: 300, width: 400, crop: :fill %>
-
         </div>
       </div>
+    </div>
+    <div class="card card-info mb-2 p-2 width:400px">
+      <%= render 'bookings/form' %>
+    </div>
 
+</div>
+<div class="container">
       <h2>Reviews</h2>
       <div class="notification">
         <img src='https://kitt.lewagon.com/placeholder/users/arthur-littm' class="avatar-large" />
@@ -55,6 +59,3 @@
           </div>
         </div>
     </div>
-<%= render 'bookings/form' %>
-  </div>
-</div>

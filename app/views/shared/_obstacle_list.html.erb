@@ -2,11 +2,11 @@
   <% @obstacles.each do |obstacle| %>
     <%= link_to obstacle_path(obstacle) do %>
       <div class="card">
-        <img src="https://raw.githubusercontent.com/lewagon/fullstack-images/master/uikit/greece.jpg" />
+        <%= cl_image_tag obstacle.photo.key, height:200 , width: 400, crop: :fill %>
         <div class="card-infos">
           <div>
             <h2> <%= obstacle.name %> </h2>
-            <p>obstacle.desscription</p>
+            <p> <%=obstacle.description %></p>
           </div>
           <h2 class="card-pricing"> <%= obstacle.price %>€ </h2>
         </div>
