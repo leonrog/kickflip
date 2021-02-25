@@ -1,10 +1,26 @@
 <% if policy(@obstacles).dashboard? %>
 
-  <div class="grid-container m-3">
-    <% @bookings.each do |booking| %>
-      <%= booking.start_date %>
-    <% end %>
 
+<div class="container">
+  <h4>My Bookings</h4>
+  <div class="grid-container m-3">
+  <% @bookings.each do |booking| %>
+    <div class="notification">
+          <%= cl_image_tag booking.obstacle.photo.key, height:100 , width: 200, crop: :fill %>
+          <div class="notification-content">
+            <p>Obstacle: <%= booking.obstacle.name %> </p>
+
+            <p>Start date: <%= booking.start_date %> </p>
+            <p>End date: <%= booking.end_date %> </p>
+            <p>Landlord-Email: <%= booking.obstacle.user.email %> </p>
+          </div>
+        </div>
+  <% end %>
+  </div>
+
+    <h4>My Obstacles</h4>
+
+  <div class="grid-container m-3">
     <% @obstacles.each do |obstacle| %>
 
         <div class="card">
@@ -28,6 +44,6 @@
           </div>
       </div>
     <% end %>
+  <% end %>
   </div>
-<% end %>
-
+</div>

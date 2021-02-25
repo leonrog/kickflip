@@ -38,11 +38,11 @@
           <div class="notification-content">
             <p><small> <%= review.created_at %> </small></p>
             <p><%= review.description %></p>
-            <p> <%= *.times(review.rating) %></p>
+            <p> <%= review.rating %></p>
           </div>
         </div>
       <% end %>
-      <%= link_to "Create review", new_obstacle_review_path(@obstacle) %>
+      <%= link_to "Create review", new_obstacle_review_path(@obstacle),class: "btn btn-flat btn-color" %>
 
       <h2>Contact the seller</h2>
         <div class="seller-info">
