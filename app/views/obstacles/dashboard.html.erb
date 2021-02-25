@@ -1,9 +1,19 @@
 <% if policy(@obstacles).dashboard? %>
 
-  <div class="grid-container m-3">
-    <% @bookings.each do |booking| %>
-      <%= booking.start_date %>
-    <% end %>
+  <% @bookings.each do |booking| %>
+    <div class="card">
+      <div class="card-header">
+        From <%= booking.start_date %> until <%= booking.end_date %>
+      </div>
+      <div class="card-body">
+        <h5 class="card-title"><%= booking.obstacle.name %></h5>
+        <p class="card-text mb-3"><%= booking.obstacle.description %></p>
+        <%= link_to "Cancel", booking_path(booking), method: :delete,
+              data: { confirm: "Are you sure?" } %>
+      </div>
+    </div>
+  <% end %>
+
 
     <% @obstacles.each do |obstacle| %>
 
