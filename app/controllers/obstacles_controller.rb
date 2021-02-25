@@ -38,15 +38,16 @@ class ObstaclesController < ApplicationController
   end
 
   def update
-    @obstacle = Obstacle.update(obstacle_params)
     authorize @obstacle
+    @obstacle = Obstacle.update(obstacle_params)
     redirect_to obstacle_path(@obstacle)
   end
 
   def destroy
+
     @obstacle.destroy
-    authorize @obstacle
-    redirect_to obstacles_path
+authorize @obstacle
+    redirect_to root_path
   end
 
   def dashboard
