@@ -9,7 +9,12 @@
 
 }
 
-
+.links-list {
+  padding-left: 10px;
+  padding-right: 10px;
+  display:flex;
+  justify-content:space-between;
+}
 .card > img {
   height: 200px;
   width: 100%;

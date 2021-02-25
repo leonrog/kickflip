@@ -8,11 +8,15 @@
   <div class="collapse navbar-collapse" id="navbarSupportedContent">
     <ul class="navbar-nav mr-auto">
       <% if user_signed_in? %>
+        <% if policy(Obstacle).create? %>
          <li class="nav-item">
-          <% if policy(Obstacle).create? %>
-            <%= link_to "UPLOAD", new_obstacle_path, class: "link" %>
-          <% end %>
-        </li>
+            <%= link_to "Upload Obstacle", new_obstacle_path, class: "link" %>
+          </li>
+          <li class="nav-item">
+            <%= link_to "My Dashboard", my_dashboard_path, class: "link" %>
+          </li>
+        <% end %>
+
         <li class="nav-item dropdown">
 
 
