@@ -1,6 +1,5 @@
 <% if policy(@obstacles).dashboard? %>
 
-
 <div class="container">
   <h4>My Bookings</h4>
   <div class="grid-container m-3">
@@ -14,11 +13,11 @@
             <p>End date: <%= booking.end_date %> </p>
             <p>Landlord-Email: <%= booking.obstacle.user.email %> </p>
           </div>
+          <%= link_to "Cancel", booking_path(booking), method: :delete,
+              data: { confirm: "Are you sure?" } %>
         </div>
   <% end %>
   </div>
-
-    <h4>My Obstacles</h4>
 
   <div class="grid-container m-3">
     <% @obstacles.each do |obstacle| %>
