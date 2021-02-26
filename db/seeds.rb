@@ -11,7 +11,12 @@ OpenURI::Buffer.send :remove_const, 'StringMax' if OpenURI::Buffer.const_defined
 OpenURI::Buffer.const_set 'StringMax', 0
 
 Obstacle.destroy_all
+Review.destroy_all
+Booking.destroy_all
 
+puts 'Start kickflip seeding'
+
+# ---Obstacles for Demo-----------------------------------------
 small_ramp =       Obstacle.create!(name: 'Small Ramp',          category: 'Ramp',     price: 10, availability: true, user_id: 1, description: 'This is my go-to obstacle when trying out new tricks',                                                                    location: 'Berlin')
 curb_kings =       Obstacle.create!(name: 'Curb Kings',          category: 'Curb',     price: 20, availability: true, user_id: 1, description: 'Just got this curb myself, but will be on vacation for one month now', location: 'Munich')
 kinked_handrail =  Obstacle.create!(name: 'Kinked Handrail',     category: 'Handrail', price: 15, availability: true, user_id: 1, description: 'This handrail is just sick!! A must have when skating with friends',                                                                                            location: 'Munich')
@@ -54,3 +59,10 @@ filename = File.basename(URI.parse(url_flat_spot_rail).path)
 file = URI.open(url_flat_spot_rail)
 flat_spot_rail.photo.attach(io: file, filename: filename)
 flat_spot_rail.save!
+
+# ---Reviews for Demo------------------------------------------
+
+dion_review = Review.create!(title: 'Just dope', description: 'Managed to land my first kickflip ever', rating: 5, obstacle_id: 4)
+
+
+puts 'All done, enjoyy'
