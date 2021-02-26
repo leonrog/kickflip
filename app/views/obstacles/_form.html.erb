@@ -1,13 +1,42 @@
-
-<div class="container form-color">
+<body style="background-color:white; color:black;"></body>
+<div class="container form-color" >
   <%= simple_form_for @obstacle do |f| %>
+    <div class="d-flex justify-content-between" style="background-color:white; color:black;">
     <%= f.input :name %>
-    <%= f.input :category, collection: %w(Flatrail Curb Kicker Quarter Ramp Handrail Other) %>
-    <%= f.input :description %>
     <%= f.input :price %>
-    <%= f.input :availability %>
     <%= f.input :location %>
-    <%= f.input :photo, as: :file %>
-    <%= f.button :submit, class: "btn btn-flat btn-color" %>
+    <%= f.input :category, input_html: { class: "category-select"}, collection: %w(Flatrail Curb Kicker Quarter Ramp Handrail Other) %>
+    </div>
+      <%= f.input :description, placeholder: "This flatrail is in great condition..." %>
+
+
+    <%= f.input :availability %>
+    <%= f.input :photo, as: :file, id: :blah, :input_html => {:onchange => "readURL(this)"}%>
+    <div class="d-flex justify-content-center m-3">
+      <img id="blah" src="#" alt="" class="image-upload " />
+    </div>
+    <div>
+      <%= f.button :submit, class: "w-100 btn btn-flat btn-color" %>
+    </div>
   <% end %>
 </div>
+
+<link class="jsbin" href="http://ajax.googleapis.com/ajax/libs/jqueryui/1/themes/base/jquery-ui.css" rel="stylesheet" type="text/css" />
+<script class="jsbin" src="http://ajax.googleapis.com/ajax/libs/jquery/1/jquery.min.js"></script>
+<script class="jsbin" src="http://ajax.googleapis.com/ajax/libs/jqueryui/1.8.0/jquery-ui.min.js"></script>
+
+
+
+<style type="text/css">
+  .image-upload{
+    width: 10%;
+    height: auto;
+  }
+
+  .category-select{
+    width: 190px;
+
+  }
+
+</style>
+
