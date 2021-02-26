@@ -44,7 +44,7 @@ nikos.save!
 
 
 # ---Obstacles for Demo-----------------------------------------
-small_ramp =       Obstacle.create!(name: 'Small Ramp',          category: 'Ramp',     price: 10, availability: true, user: dion, description: 'This is my go-to obstacle when trying out new tricks',                                                                    location: 'Berlin')
+small_ramp =       Obstacle.create!(name: 'Small Ramp',          category: 'Ramp',     price: 10, availability: true, user: dion, description: 'This is my go-to obstacle when trying out new tricks. Can highly recommend',                                                                    location: 'Berlin')
 curb_kings =       Obstacle.create!(name: 'Curb Kings',          category: 'Curb',     price: 20, availability: true, user: marcel, description: 'Just got this curb myself, but will be on vacation for one month now', location: 'Munich')
 kinked_handrail =  Obstacle.create!(name: 'Kinked Handrail',     category: 'Handrail', price: 15, availability: true, user: dion, description: 'This handrail is just sick!! A must have when skating with friends',                                                                                            location: 'Munich')
 two_way_skate_ramp = Obstacle.create!(name: '2-way Skate Ramp',  category: 'Ramp',     price: 18, availability: true, user: marcel, description: 'Perfect for trying out new jumps! You can also test it before making a booking',                                                                                       location: 'Hamburg')

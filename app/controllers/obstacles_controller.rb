@@ -39,7 +39,7 @@ class ObstaclesController < ApplicationController
 
   def update
     authorize @obstacle
-    @obstacle = Obstacle.update(obstacle_params)
+    @obstacle.update(obstacle_params)
     redirect_to obstacle_path(@obstacle)
   end
 
