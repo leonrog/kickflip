@@ -1,5 +1,24 @@
 <!-- <h1>Obstacles#new</h1>
 <p>Find me in app/views/obstacles/new.html.erb</p> -->
 
-<h1 class="text-center mt-3 form-color">UPLOAD YOUR ITEM</h1>
+<h1 class="text-center mt-3 mb-3">UPLOAD YOUR OBSTACLE</h1>
 <%= render 'form' %>
+
+
+
+<script type="text/javascript">
+  function readURL(input) {
+        if (input.files && input.files[0]) {
+            var reader = new FileReader();
+
+            reader.onload = function (e) {
+                $('#blah')
+                    .attr('src', e.target.result)
+                    .width(150)
+                    .height(200);
+            };
+
+            reader.readAsDataURL(input.files[0]);
+        }
+    }
+</script>

@@ -1,58 +1,92 @@
+<body style="background-color: white;"></body>
+<h1 class="text-center mr-3" style="font-weight:bold;"><%= @obstacle.name %></h1>
+    <div class="d-flex justify-content-center">
+      <i class="fas fa-map-marker-alt ml-3"><span class="text-center location-txt ml-2"><%= @obstacle.location %></span></i> </h4>
+    </div>
 
 <div class="header">
-  <div class="container">
 
-    <div class="card">
-      <%= cl_image_tag @obstacle.photo.key, height: 300, width: 400, crop: :fill %>
+  <div class="container d-flex  justify-content-between mt-3" style="width:1100px;">
+
+    <div class="flex-item1">
+
+      <% if @obstacle.photo.present? %>
+        <%= cl_image_tag @obstacle.photo.key, class: "show-img", crop: :fill %>
+      <% end %>
     </div>
-  </div>
-</div>
-
-<div class="container">
-  <div class="show-page">
-
-    <div class="obstacle-description">
-      <h2>Product</h2>
+    <div class="d-flex align-items-center">
+       <div class="show-txt ">
       <div class="card card-info mb-2">
         <div class="details">
           <div class="description">
-            <h4> <%= @obstacle.name %> </h4>
-            <h5> <%= @obstacle.description %> </h5>
-          </div>
-          <div class="price">
-            <p> <%= @obstacle.price %> €</p>
+            <h4> <%= @obstacle.name %>   <span style="font-size:17px;"> - <span class="price"> <%= @obstacle.price %> €</span> per day  </span></h4>
+
+            <hr>
+            <span class="sub-title mb-3">description </span>
+            <h5><%= @obstacle.description %> </h5>
+            <span class="sub-title">sold by </span>
+            <h5>  <%= @obstacle.user.email %> </h5>
           </div>
         </div>
       </div>
+     <div class="card card-info mb-2 p-2 width:400px flex-item2">
+      <h3 class="mt-1 mb-2" style="font-weight:bold;">Book this obstacle</h3>
+        <%= render 'bookings/form' %>
+
+      </div>
     </div>
-    <div class="card card-info mb-2 p-2 width:400px">
-      <%= render 'bookings/form' %>
     </div>
+
+  </div>
 
 </div>
-<div class="container">
-      <h2>Reviews</h2>
-      <% @reviews.each do |review| %>
-        <div class="notification">
-          <%= cl_image_tag review.user.photo.key, class: "avatar dropdown-toggle"%>
-          <div class="notification-content">
-            <p><small> <%= review.created_at %> </small></p>
-            <p><%= review.description %></p>
-            <p> <%="⭐️"* review.rating  %></p>
-          </div>
-        </div>
-      <% end %>
-      <%= link_to "Create review", new_obstacle_review_path(@obstacle),class: "btn btn-flat btn-color" %>
 
-      <h2>Contact the seller</h2>
-        <div class="seller-info">
-          <div>
-          <h3>Seller Name</h3>
-          <p>Seller Rating ****</p>
-          <button>Contact me</button>
-          </div>
-          <div class="seller-text ml-2">
-            <p>I am here to help you. Used this for backflips.</p>
-          </div>
-        </div>
+  <div class="container" style="width:1100px; max-width: 1100px; margin-top:-60px;">
+    <h4>Reviews</h4>
+        <div class="card">
+          <% @reviews.each do |review| %>
+            <% if review.present? %>
+              <div class="notification">
+                <% if review.user.photo.present? %>
+                <%= cl_image_tag review.user.photo.key, class: "avatar dropdown-toggle"%>
+                <% end %>
+                <div class="notification-content">
+                  <p><small> <%= review.created_at %> </small></p>
+                  <p><%= review.description %></p>
+                  <p> <%="⭐️"* review.rating  %></p>
+                </div>
+              </div>
+          <% else %>
+            <p>Be the first to write a review</p>
+            <% end %>
+          <% end %>
+      </div>
+      <%= link_to "WRITE REVIEW", new_obstacle_review_path(@obstacle),class: "btn btn-flat btn-color" %>
     </div>
+
+
+
+<style type="text/css">
+  .show-img{
+    width: 520px;
+    height: auto;
+    border-radius: 5px;
+    flex-grow: 1;
+  }
+  .show-txt{
+  }
+  .price{
+    color:red;
+}
+  .sub-title{
+    color:#8D8D8D;
+    letter-spacing: 1px;
+    font-size:12px;
+  }
+
+  .location-txt{
+    font-family: "Work Sans", "Helvetica", "sans-serif";
+    font-size:16px;
+    font-weight: normal;
+  }
+</style>
