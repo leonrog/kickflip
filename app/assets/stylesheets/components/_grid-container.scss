@@ -5,3 +5,11 @@
   grid-template-columns: auto auto auto;
 
 }
+
+.grid-container-small {
+  display: grid;
+  grid-column-gap: 50px;
+  grid-template-columns: auto auto;
+
+}
+
