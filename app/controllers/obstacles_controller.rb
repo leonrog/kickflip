@@ -46,7 +46,7 @@ class ObstaclesController < ApplicationController
   def destroy
 
     @obstacle.destroy
-  authorize @obstacle
+    authorize @obstacle
     redirect_to my_dashboard_path
   end
 
