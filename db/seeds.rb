@@ -60,9 +60,11 @@ file = URI.open(url_flat_spot_rail)
 flat_spot_rail.photo.attach(io: file, filename: filename)
 flat_spot_rail.save!
 
+dion = User.find_by_email('dion@skater.com')
+
 # ---Reviews for Demo------------------------------------------
 
-dion_review = Review.create!(title: 'Just dope', description: 'Managed to land my first kickflip ever', rating: 5, obstacle_id: 4)
+dion_review = Review.create!(title: 'Just dope', description: 'Managed to land my first kickflip ever', rating: 5, obstacle: small_ramp, user: dion )
 
 
 puts 'All done, enjoyy'
