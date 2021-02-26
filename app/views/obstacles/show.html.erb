@@ -1,12 +1,8 @@
-
-<div class="container d-flex align-items-center justify-content-between mt-3" style="width:1100px;">
-  <h3 class="text-center" style="border:1px solid black;"><%= @obstacle.name %></h3>
-</div>
-<div class="container d-flex align-items-center justify-content-between mt-3" style="width:1100px;">
-  <i class="fas fa-map-marker-alt"><span class="text-center location-txt" style="border:1px solid black;"><%= @obstacle.location %></span></i>
-
-</div>
-
+<div class="container d-flex align-items-center justify-content-left mt-3" style="width:1100px;">
+    <h3 class="text-center mr-3" ><%= @obstacle.name %></h3>
+    -
+    <i class="fas fa-map-marker-alt ml-3"><span class="text-center location-txt ml-2"><%= @obstacle.location %></span></i>
+  </div>
 <div class="header">
 
   <div class="container d-flex align-items-center justify-content-between mt-3" style="width:1100px;">
@@ -22,10 +18,10 @@
           <div class="description">
             <h4> <%= @obstacle.name %> </h4>
             <hr>
-            <h5><span class="sub-title">description: </span><%= @obstacle.description %> </h5>
-            <h5><span class="sub-title">category: </span> <%= @obstacle.category %> </h5>
-            <h5><span class="sub-title">location: </span><%= @obstacle.location %> </h5>
-            <h5><span class="sub-title">sold by: </span><%= @obstacle.user.email %> </h5>
+            <span class="sub-title mb-3">description </span>
+            <h5><%= @obstacle.description %> </h5>
+            <span class="sub-title">sold by </span>
+            <h5>  <%= @obstacle.user.email %> </h5>
           </div>
           <div class="price">
             <p> <%= @obstacle.price %> €</p>
@@ -79,7 +75,9 @@
   .sub-title{
     color:#8D8D8D;
     letter-spacing: 1px;
+    font-size:12px;
   }
+
   .location-txt{
     font-family: "Work Sans", "Helvetica", "sans-serif";
     font-size:19px;
