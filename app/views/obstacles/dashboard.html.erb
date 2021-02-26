@@ -1,45 +1,54 @@
 <% if policy(@obstacles).dashboard? %>
 
+
 <div class="container">
-  <h4>My Bookings</h4>
-  <div class="grid-container m-3">
-  <% @bookings.each do |booking| %>
-    <div class="notification">
+  <h4 style="margin-left: 15px"class="mt-3 mb-1"><strong>My Bookings</strong></h4>
+  <div class="grid-container-small m-3">
+    <% @bookings.each do |booking| %>
+      <div style="padding-right:5px;"class="notification">
+         <% if booking.obstacle.photo.attached? %>
           <%= cl_image_tag booking.obstacle.photo.key, height:100 , width: 200, crop: :fill %>
-          <div class="notification-content">
-            <p>Obstacle: <%= booking.obstacle.name %> </p>
+        <% end %>
+            <div style="padding-left: 10px;padding-right:10px;" class="notification-content booking-description">
+              <p><strong>Obstacle:</strong> <%= booking.obstacle.name %> </p>
 
-            <p>Start date: <%= booking.start_date %> </p>
-            <p>End date: <%= booking.end_date %> </p>
-            <p>Landlord-Email: <%= booking.obstacle.user.email %> </p>
+              <p><strong>Start date:</strong> <%= booking.start_date.strftime("%B-%d")  %> </p>
+              <p><strong>End date:</strong> <%= booking.end_date.strftime("%B-%d")  %></p>
+              <p><strong>Landlord-Email:</strong> <%= booking.obstacle.user.email %> </p>
+            </div>
+            <%= link_to "Cancel booking", booking_path(booking), method: :delete,
+                data: { confirm: "Are you sure?" }, class: "btn btn-flat btn-color padding:5px" %>
           </div>
-          <%= link_to "Cancel", booking_path(booking), method: :delete,
-              data: { confirm: "Are you sure?" } %>
-        </div>
-  <% end %>
+    <% end %>
   </div>
-
-  <div class="grid-container m-3">
+<h4 style="margin-left: 15px"class="mt-3 mb-1"><strong>My Obstacles</strong></h4>
+  <div class="grid-container m-3 ">
     <% @obstacles.each do |obstacle| %>
 
-        <div class="card">
+        <div class="card dropdown-container ">
+          <div class="dropdown dropdown-dashboard">
+            <span class=" btn btn-color dropdown-toggle material-icons" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+              create
+            </span>
+            <div class="dropdown-menu dropdown-menu-right " aria-labelledby="dropdownMenuButton">
+              <%= link_to "View", obstacle_path(obstacle), class: " dropdown-item"  %>
+              <%= link_to "Edit", edit_obstacle_path(obstacle), class: "dropdown-item"%>
+              <%= link_to "Delete",
+                obstacle_path(obstacle),
+                method: :delete,
+                data: { confirm: "Are you sure?" }, class: "dropdown-item" %>
+            </div>
+          </div>
           <% if obstacle.photo.attached? %>
-            <%= cl_image_tag obstacle.photo.key, height:200 , width: 400, crop: :fill %>
+            <%= cl_image_tag obstacle.photo.key, height:200 , width: 400, crop: :fill, class: "dropdown-picture" %>
+
           <% end %>
-          <div class="card-infos">
+          <div class="card-infos dropdown-infos">
             <div>
               <h2> <%= obstacle.name %> </h2>
               <p> <%=obstacle.description %></p>
             </div>
             <h2 class="card-pricing"> <%= obstacle.price %>€ </h2>
-          </div>
-          <div class="links-list">
-          <%= link_to "View", obstacle_path(obstacle) %>
-          <%= link_to "Edit", edit_obstacle_path(obstacle) %>
-          <%= link_to "Delete #{obstacle.name}",
-            obstacle_path(obstacle),
-            method: :delete,
-            data: { confirm: "Are you sure?" } %>
           </div>
       </div>
     <% end %>
