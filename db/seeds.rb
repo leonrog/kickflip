@@ -22,13 +22,13 @@ puts 'Start kickflip seeding'
 dion = User.create!(email: 'dion@gmail.com', password: '123456')
 marcel = User.create!(email: 'marcel@gmail.com', password: '123456')
 
-url_dion = 'https://res.cloudinary.com/diopgwo4d/image/upload/v1614180847/ccrrrp4qku9w9su5t8rxio60n69v.png'
+url_dion = 'https://res.cloudinary.com/diopgwo4d/image/upload/c_fit,h_2696/v1614261681/shawn-D2CXn1266-E-unsplash_osbapv.jpg'
 filename = File.basename(URI.parse(url_dion).path)
 file = URI.open(url_dion)
 dion.photo.attach(io: file, filename: filename)
 dion.save!
 
-url_marcel = 'https://res.cloudinary.com/diopgwo4d/image/upload/v1614341960/Bildschirmfoto_2021-02-26_um_13.19.07_g8yayi.png'
+url_marcel = 'https://res.cloudinary.com/diopgwo4d/image/upload/v1614346896/elueyf46ffxtm6gtaapgo2glo3qe.png'
 filename = File.basename(URI.parse(url_marcel).path)
 file = URI.open(url_marcel)
 marcel.photo.attach(io: file, filename: filename)
