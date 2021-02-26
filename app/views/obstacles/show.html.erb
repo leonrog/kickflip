@@ -28,24 +28,28 @@
 
 </div>
   <div class="container mt-3" style="width:1100px; max-width: 1100px;">
-      <% if @review.present? %>
+
         <div class="card">
           <% @reviews.each do |review| %>
-            <div class="notification">
-              <%= cl_image_tag review.user.photo.key, class: "avatar dropdown-toggle"%>
-              <div class="notification-content">
-                <p><small> <%= review.created_at %> </small></p>
-                <p><%= review.description %></p>
-                <p> <%="⭐️"* review.rating  %></p>
+            <% if review.present? %>
+              <div class="notification">
+                <% if review.user.photo.present? %>
+                <%= cl_image_tag review.user.photo.key, class: "avatar dropdown-toggle"%>
+                <% end %>
+                <div class="notification-content">
+                  <p><small> <%= review.created_at %> </small></p>
+                  <p><%= review.description %></p>
+                  <p> <%="⭐️"* review.rating  %></p>
+                </div>
               </div>
-            </div>
+          <% else %>
+            <p>Be the first to write a review</p>
+            <% end %>
           <% end %>
-        <% else %>
-        <p>Be the first to write a review</p>
-        <% end %>
         <%= link_to "Create review", new_obstacle_review_path(@obstacle),class: "btn btn-flat btn-color d-flex justify-content-center" %>
       </div>
     </div>
+
 
 
 <style type="text/css">
