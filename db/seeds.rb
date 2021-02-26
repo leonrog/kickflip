@@ -19,8 +19,8 @@ puts 'Start kickflip seeding'
 
 # ---Users for Demo------------------------------------------
 
-dion = User.create!(email: 'dion@gmail.com', encrypted_password: '123456')
-marcel = User.create!(email: 'marcel@gmail.com', encrypted_password: '123456')
+dion = User.create!(email: 'dion@gmail.com', password: '123456')
+marcel = User.create!(email: 'marcel@gmail.com', password: '123456')
 
 url_dion = 'https://res.cloudinary.com/diopgwo4d/image/upload/v1614180847/ccrrrp4qku9w9su5t8rxio60n69v.png'
 filename = File.basename(URI.parse(url_dion).path)
@@ -37,12 +37,12 @@ marcel.save!
 
 
 # ---Obstacles for Demo-----------------------------------------
-small_ramp =       Obstacle.create!(name: 'Small Ramp',          category: 'Ramp',     price: 10, availability: true, user_id: 1, description: 'This is my go-to obstacle when trying out new tricks',                                                                    location: 'Berlin')
-curb_kings =       Obstacle.create!(name: 'Curb Kings',          category: 'Curb',     price: 20, availability: true, user_id: 1, description: 'Just got this curb myself, but will be on vacation for one month now', location: 'Munich')
-kinked_handrail =  Obstacle.create!(name: 'Kinked Handrail',     category: 'Handrail', price: 15, availability: true, user_id: 1, description: 'This handrail is just sick!! A must have when skating with friends',                                                                                            location: 'Munich')
-two_way_skate_ramp = Obstacle.create!(name: '2-way Skate Ramp',  category: 'Ramp',     price: 18, availability: true, user_id: 1, description: 'Perfect for trying out new jumps! You can also test it before making a booking',                                                                                       location: 'Hamburg')
-four_way_skate_ramp = Obstacle.create!(name: '4-way Skate Ramp', category: 'Ramp',     price: 25, availability: true, user_id: 1, description: 'NKX 4-way skate ramp to test your new tricks, absolutely love this obstacle',                                                                            location: 'Berlin')
-flat_spot_rail =  Obstacle.create!(name: 'Flat Spot Rail',       category: 'Flatrail', price: 30, availability: true, user_id: 1, description: 'Flat spot rail to go, perfect to take with you when skating with friends',                                                                                                    location: 'Hamburg')
+small_ramp =       Obstacle.create!(name: 'Small Ramp',          category: 'Ramp',     price: 10, availability: true, user: dion, description: 'This is my go-to obstacle when trying out new tricks',                                                                    location: 'Berlin')
+curb_kings =       Obstacle.create!(name: 'Curb Kings',          category: 'Curb',     price: 20, availability: true, user: marcel, description: 'Just got this curb myself, but will be on vacation for one month now', location: 'Munich')
+kinked_handrail =  Obstacle.create!(name: 'Kinked Handrail',     category: 'Handrail', price: 15, availability: true, user: dion, description: 'This handrail is just sick!! A must have when skating with friends',                                                                                            location: 'Munich')
+two_way_skate_ramp = Obstacle.create!(name: '2-way Skate Ramp',  category: 'Ramp',     price: 18, availability: true, user: marcel, description: 'Perfect for trying out new jumps! You can also test it before making a booking',                                                                                       location: 'Hamburg')
+four_way_skate_ramp = Obstacle.create!(name: '4-way Skate Ramp', category: 'Ramp',     price: 25, availability: true, user: dion, description: 'NKX 4-way skate ramp to test your new tricks, absolutely love this obstacle',                                                                            location: 'Berlin')
+flat_spot_rail =  Obstacle.create!(name: 'Flat Spot Rail',       category: 'Flatrail', price: 30, availability: true, user: marcel, description: 'Flat spot rail to go, perfect to take with you when skating with friends',                                                                                                    location: 'Hamburg')
 
 url_small_ramp = 'https://res.cloudinary.com/diopgwo4d/image/upload/c_fit,h_2696/v1614261681/shawn-D2CXn1266-E-unsplash_osbapv.jpg'
 filename = File.basename(URI.parse(url_small_ramp).path)
