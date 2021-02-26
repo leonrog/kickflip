@@ -1,13 +1,14 @@
 
 <div class="container form-color">
   <%= simple_form_for @obstacle do |f| %>
-    <div class="d-flex justify-content-around">
+    <div class="d-flex justify-content-between">
     <%= f.input :name %>
     <%= f.input :price %>
     <%= f.input :location %>
     <%= f.input :category, collection: %w(Flatrail Curb Kicker Quarter Ramp Handrail Other) %>
     </div>
-    <%= f.input :description, placeholder: "This flatrail is in great condition..." %>
+      <%= f.input :description, placeholder: "This flatrail is in great condition..." %>
+
 
     <%= f.input :availability %>
     <%= f.input :photo, as: :file, class: "inputfile", id: :blah, :input_html => {:onchange => "readURL(this)"}%>
