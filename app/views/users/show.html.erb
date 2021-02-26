@@ -1,17 +1,17 @@
-<h1 class="text-center">USER INFORMATION</h1>
+<h1 class="text-center">User information</h1>
 <div class="container">
   <div class="card p-3 d-flex justify-content-center m-3">
-    <p>EMAIL</p>
+    <p><strong>Email</strong></p>
     <%= @user.email %>
   </div>
     <% if @user.photo.attached? %>
       <div class="card p-3 d-flex justify-content-center m-3">
-        <p>PHOTO</p>
+        <p><strong>Photo</strong></p>
         <%= cl_image_tag @user.photo.key, height: 300, width: 400, crop: :fill %>
       </div>
     <% else %>
     <div class="card p-3 d-flex justify-content-center m-3">
-      <%= link_to "attach photo", edit_my_profile_path %>
+      <%= link_to "Attach photo", edit_my_profile_path, style: "font-weight: bold"%>
     </div>
     <% end %>
 

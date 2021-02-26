@@ -7,7 +7,7 @@
     <% @bookings.each do |booking| %>
       <div style="padding-right:5px;"class="notification">
          <% if booking.obstacle.photo.attached? %>
-          <%= cl_image_tag booking.obstacle.photo.key, height:100 , width: 200, crop: :fill %>
+          <%= cl_image_tag booking.obstacle.photo.key, height:100 , width: 200, crop: :fill, style:"border-radius: 5px padding-left: 10px" %>
         <% end %>
             <div style="padding-left: 10px;padding-right:10px;" class="notification-content booking-description">
               <p><strong>Obstacle:</strong> <%= booking.obstacle.name %> </p>
