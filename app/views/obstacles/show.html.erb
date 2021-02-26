@@ -1,58 +1,67 @@
 
 <div class="header">
-  <div class="container">
-
-    <div class="card">
-      <%= cl_image_tag @obstacle.photo.key, height: 300, width: 400, crop: :fill %>
+  <div class="container d-flex align-items-center justify-content-around mt-3" style="width:1100px;">
+    <div class="flex-item1">
+      <%= cl_image_tag @obstacle.photo.key, class: "show-img", crop: :fill %>
     </div>
-  </div>
-</div>
-
-<div class="container">
-  <div class="show-page">
-
-    <div class="obstacle-description">
-      <h2>Product</h2>
-      <div class="card card-info mb-2">
+    <div class="show-txt">
+      <div class="card card-info mb-2 flex-item3">
         <div class="details">
           <div class="description">
             <h4> <%= @obstacle.name %> </h4>
-            <h5> <%= @obstacle.description %> </h5>
+            <hr>
+            <h5><span class="sub-title">description: </span><%= @obstacle.description %> </h5>
+            <h5><span class="sub-title">category: </span> <%= @obstacle.category %> </h5>
+            <h5><span class="sub-title">location: </span><%= @obstacle.location %> </h5>
+            <h5><span class="sub-title">sold by: </span><%= @obstacle.user.email %> </h5>
           </div>
           <div class="price">
             <p> <%= @obstacle.price %> €</p>
           </div>
         </div>
       </div>
+     <div class="card card-info mb-2 p-2 width:400px flex-item2">
+        <%= render 'bookings/form' %>
+      </div>
     </div>
-    <div class="card card-info mb-2 p-2 width:400px">
-      <%= render 'bookings/form' %>
-    </div>
+  </div>
 
 </div>
-<div class="container">
-      <h2>Reviews</h2>
-      <% @reviews.each do |review| %>
-        <div class="notification">
-          <%= cl_image_tag review.user.photo.key, class: "avatar dropdown-toggle"%>
-          <div class="notification-content">
-            <p><small> <%= review.created_at %> </small></p>
-            <p><%= review.description %></p>
-            <p> <%="⭐️"* review.rating  %></p>
-          </div>
-        </div>
-      <% end %>
-      <%= link_to "Create review", new_obstacle_review_path(@obstacle),class: "btn btn-flat btn-color" %>
-
-      <h2>Contact the seller</h2>
-        <div class="seller-info">
-          <div>
-          <h3>Seller Name</h3>
-          <p>Seller Rating ****</p>
-          <button>Contact me</button>
-          </div>
-          <div class="seller-text ml-2">
-            <p>I am here to help you. Used this for backflips.</p>
-          </div>
-        </div>
+  <div class="container mt-3" style="width:1100px; max-width: 1100px;">
+      <% if @review.present? %>
+        <div class="card">
+          <% @reviews.each do |review| %>
+            <div class="notification">
+              <%= cl_image_tag review.user.photo.key, class: "avatar dropdown-toggle"%>
+              <div class="notification-content">
+                <p><small> <%= review.created_at %> </small></p>
+                <p><%= review.description %></p>
+                <p> <%="⭐️"* review.rating  %></p>
+              </div>
+            </div>
+          <% end %>
+        <% else %>
+        <p>Be the first to write a review</p>
+        <% end %>
+        <%= link_to "Create review", new_obstacle_review_path(@obstacle),class: "btn btn-flat btn-color d-flex justify-content-center" %>
+      </div>
     </div>
+
+
+<style type="text/css">
+  .show-img{
+    width: 400px;
+    height: auto;
+    border-radius: 5px;
+    flex-grow: 1;
+  }
+  .show-txt{
+  }
+  .price{
+    color:red;
+  }
+  .sub-title{
+    color:#8D8D8D;
+    letter-spacing: 1px;
+  }
+</style>
