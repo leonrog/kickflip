@@ -1,4 +1,4 @@
-<h2 class="text-center form-color">EDIT USER</h2>
+<h2 class="text-center form-color"><strong>Edit User</strong></h2>
 <div class="container form-color">
 <%= simple_form_for(@user, url: update_my_profile_path, html: { method: :put }) do |f| %>
   <%= f.error_notification %>
@@ -13,6 +13,7 @@
   </div>
 <% end %>
 
-<%= link_to "Cancel", :back, class: "btn btn-flat btn-color mt-4" %>
+<%= link_to "Cancel", :back, class: " btn btn-flat btn-color mt-4", style: "width:108px; padding-top:13px;padding-bottom:13px;
+    vertical-align: middle;" %>
 
 </div>
