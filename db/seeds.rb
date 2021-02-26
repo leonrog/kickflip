@@ -21,6 +21,7 @@ puts 'Start kickflip seeding'
 
 dion = User.create!(email: 'dion@gmail.com', password: '123456')
 marcel = User.create!(email: 'marcel@gmail.com', password: '123456')
+nikos = User.create!(email: 'nikos@gmail.com', password: '123456')
 
 url_dion = 'https://res.cloudinary.com/diopgwo4d/image/upload/c_fit,h_2696/v1614261681/shawn-D2CXn1266-E-unsplash_osbapv.jpg'
 filename = File.basename(URI.parse(url_dion).path)
@@ -34,6 +35,12 @@ file = URI.open(url_marcel)
 marcel.photo.attach(io: file, filename: filename)
 marcel.save!
 
+url_nikos = 'https://res.cloudinary.com/diopgwo4d/image/upload/v1614351656/Screenshot_2021-02-26_at_16.00.48_mwytux.png'
+filename = File.basename(URI.parse(url_nikos).path)
+file = URI.open(url_nikos)
+nikos.photo.attach(io: file, filename: filename)
+nikos.save!
+
 
 
 # ---Obstacles for Demo-----------------------------------------
@@ -41,8 +48,9 @@ small_ramp =       Obstacle.create!(name: 'Small Ramp',          category: 'Ramp
 curb_kings =       Obstacle.create!(name: 'Curb Kings',          category: 'Curb',     price: 20, availability: true, user: marcel, description: 'Just got this curb myself, but will be on vacation for one month now', location: 'Munich')
 kinked_handrail =  Obstacle.create!(name: 'Kinked Handrail',     category: 'Handrail', price: 15, availability: true, user: dion, description: 'This handrail is just sick!! A must have when skating with friends',                                                                                            location: 'Munich')
 two_way_skate_ramp = Obstacle.create!(name: '2-way Skate Ramp',  category: 'Ramp',     price: 18, availability: true, user: marcel, description: 'Perfect for trying out new jumps! You can also test it before making a booking',                                                                                       location: 'Hamburg')
-four_way_skate_ramp = Obstacle.create!(name: '4-way Skate Ramp', category: 'Ramp',     price: 25, availability: true, user: dion, description: 'NKX 4-way skate ramp to test your new tricks, absolutely love this obstacle',                                                                            location: 'Berlin')
-flat_spot_rail =  Obstacle.create!(name: 'Flat Spot Rail',       category: 'Flatrail', price: 30, availability: true, user: marcel, description: 'Flat spot rail to go, perfect to take with you when skating with friends',                                                                                                    location: 'Hamburg')
+four_way_skate_ramp = Obstacle.create!(name: '4-way Skate Ramp', category: 'Ramp',     price: 25, availability: true, user: nikos, description: 'NKX 4-way skate ramp to test your new tricks, absolutely love this obstacle',                                                                            location: 'Berlin')
+flat_spot_rail =  Obstacle.create!(name: 'Flat Spot Rail',       category: 'Flatrail', price: 30, availability: true, user: nikos, description: 'Flat spot rail to go, perfect to take with you when skating with friends',                                                                                                    location: 'Hamburg')
+
 
 url_small_ramp = 'https://res.cloudinary.com/diopgwo4d/image/upload/c_fit,h_2696/v1614261681/shawn-D2CXn1266-E-unsplash_osbapv.jpg'
 filename = File.basename(URI.parse(url_small_ramp).path)
@@ -83,8 +91,8 @@ flat_spot_rail.save!
 
 # ---Reviews for Demo------------------------------------------
 
-dion_review = Review.create!(title: 'Just dope', description: 'Managed to land my first kickflip ever', rating: 5, obstacle: small_ramp, user: dion )
-marcel_review = Review.create!(title: 'Sickkk', description: 'Lorem Ipsum Lorem Ipsum Lorem Ipsum', rating: 5, obstacle: small_ramp, user: marcel )
+marcel_review = Review.create!(title: 'Just dope', description: 'Goot stuff good stuff. Stopped talking to my duck afterwards', rating: 5, obstacle: small_ramp, user: nikos )
+marcel_review = Review.create!(title: 'Sickkk', description: 'Managed to land my first kickflip ever', rating: 5, obstacle: small_ramp, user: marcel )
 
 
 puts 'All done, enjoyy'
