@@ -91,7 +91,7 @@ flat_spot_rail.save!
 
 # ---Reviews for Demo------------------------------------------
 
-marcel_review = Review.create!(title: 'Just dope', description: 'Goot stuff good stuff. Stopped talking to my duck afterwards', rating: 5, obstacle: small_ramp, user: nikos )
+nikos_review = Review.create!(title: 'Just dope', description: 'Goot stuff good stuff. Stopped talking to my duck afterwards', rating: 5, obstacle: small_ramp, user: nikos )
 marcel_review = Review.create!(title: 'Sickkk', description: 'Managed to land my first kickflip ever', rating: 5, obstacle: small_ramp, user: marcel )
 
 
