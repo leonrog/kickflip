@@ -2,7 +2,9 @@
 <div class="header">
   <div class="container d-flex align-items-center justify-content-around mt-3" style="width:1100px;">
     <div class="flex-item1">
-      <%= cl_image_tag @obstacle.photo.key, class: "show-img", crop: :fill %>
+      <% if @obstacle.photo.present? %>
+        <%= cl_image_tag @obstacle.photo.key, class: "show-img", crop: :fill %>
+      <% end %>
     </div>
     <div class="show-txt">
       <div class="card card-info mb-2 flex-item3">
@@ -46,7 +48,7 @@
             <p>Be the first to write a review</p>
             <% end %>
           <% end %>
-        <%= link_to "Create review", new_obstacle_review_path(@obstacle),class: "btn btn-flat btn-color d-flex justify-content-center" %>
+        <%= link_to "write review", new_obstacle_review_path(@obstacle),class: "btn btn-flat btn-color d-flex justify-content-center" %>
       </div>
     </div>
 
