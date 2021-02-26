@@ -1,6 +1,16 @@
 
+<div class="container d-flex align-items-center justify-content-between mt-3" style="width:1100px;">
+  <h3 class="text-center" style="border:1px solid black;"><%= @obstacle.name %></h3>
+</div>
+<div class="container d-flex align-items-center justify-content-between mt-3" style="width:1100px;">
+  <i class="fas fa-map-marker-alt"><span class="text-center location-txt" style="border:1px solid black;"><%= @obstacle.location %></span></i>
+
+</div>
+
 <div class="header">
-  <div class="container d-flex align-items-center justify-content-around mt-3" style="width:1100px;">
+
+  <div class="container d-flex align-items-center justify-content-between mt-3" style="width:1100px;">
+
     <div class="flex-item1">
       <% if @obstacle.photo.present? %>
         <%= cl_image_tag @obstacle.photo.key, class: "show-img", crop: :fill %>
@@ -29,7 +39,7 @@
   </div>
 
 </div>
-  <div class="container mt-3" style="width:1100px; max-width: 1100px;">
+  <div class="container mt-3" style="width:1100px; max-width: 1100px; ">
 
         <div class="card">
           <% @reviews.each do |review| %>
@@ -69,5 +79,10 @@
   .sub-title{
     color:#8D8D8D;
     letter-spacing: 1px;
+  }
+  .location-txt{
+    font-family: "Work Sans", "Helvetica", "sans-serif";
+    font-size:19px;
+    font-weight: normal;
   }
 </style>
