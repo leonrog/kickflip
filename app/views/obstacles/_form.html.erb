@@ -1,17 +1,17 @@
-
-<div class="container form-color">
+<body style="background-color:white; color:black;"></body>
+<div class="container form-color" >
   <%= simple_form_for @obstacle do |f| %>
-    <div class="d-flex justify-content-between">
+    <div class="d-flex justify-content-between" style="background-color:white; color:black;">
     <%= f.input :name %>
     <%= f.input :price %>
     <%= f.input :location %>
-    <%= f.input :category, collection: %w(Flatrail Curb Kicker Quarter Ramp Handrail Other) %>
+    <%= f.input :category, input_html: { class: "category-select"}, collection: %w(Flatrail Curb Kicker Quarter Ramp Handrail Other) %>
     </div>
       <%= f.input :description, placeholder: "This flatrail is in great condition..." %>
 
 
     <%= f.input :availability %>
-    <%= f.input :photo, as: :file, class: "inputfile", id: :blah, :input_html => {:onchange => "readURL(this)"}%>
+    <%= f.input :photo, as: :file, id: :blah, :input_html => {:onchange => "readURL(this)"}%>
     <div class="d-flex justify-content-center m-3">
       <img id="blah" src="#" alt="" class="image-upload " />
     </div>
@@ -29,9 +29,14 @@
 
 <style type="text/css">
   .image-upload{
-    width: 100%;
+    width: 10%;
     height: auto;
+  }
+
+  .category-select{
+    width: 190px;
 
   }
+
 </style>
 
